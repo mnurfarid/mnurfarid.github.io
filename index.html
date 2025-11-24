@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio Muhamad Nur Farid, seorang Web Developer profesional yang membangun aplikasi web modern, cepat, dan andal.">
+    <meta name="keywords" content="muhamad nur farid, web developer, programmer, frontend, backend, portfolio">
+    
+    <!-- Preload critical assets -->
+    <link rel="preload" href="asset/profile.png" as="image">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" as="style">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="asset/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="asset/Far.png" type="image/png">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- AOS (Animate On Scroll) CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    
+    <!-- Custom Styles -->
+    <style>
+        /* Font Import */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+        /* Global Styles */
+        body, div { font-family: 'Poppins', sans-serif; }
+        body { background-color: #151515; }
+        html { scroll-behavior: smooth; }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #151515; }
+        ::-webkit-scrollbar-thumb { background: #4b4b4b; border-radius: 5px; }
+        ::-webkit-scrollbar-thumb:hover { background: #FA6601; }
+
+        /* Utility Classes */
+        .grayscale { filter: grayscale(100%); }
+        .grayscale:hover { filter: grayscale(0%); }
+        .glow-effect {
+            width: 40px; height: 40px; border-radius: 50%;
+            box-shadow: 0 0 60px 30px #fff, 0 0 180px 60px #fff;
+        }
+
+        /* Active Navigation Link */
+        nav a.active {
+            color: #FA6601;
+            position: relative;
+        }
+        nav a.active::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background-color: #FA6601;
+            bottom: -10px; /* Adjust based on nav padding */
+            left: 0;
+        }
+        /* Efek Pinggiran Alami (Soft Vignette) */
+        .natural-edge {
+            -webkit-mask-image: radial-gradient(circle, rgba(0,0,0,1) 65%, rgba(0,0,0,0) 90%);
+            mask-image: radial-gradient(circle, rgba(0,0,0,1) 65%, rgba(0,0,0,0) 90%);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            #main {
+                padding-left: 2rem;
+                padding-right: 2rem;
+            }
+            
+            #home div[style*="font-size: 80px"] {
+                font-size: 60px !important;
+            }
+            
+            .glow-effect {
+                width: 30px;
+                height: 30px;
+                box-shadow: 0 0 40px 20px #fff, 0 0 120px 40px #fff;
+            }
+            
+            .natural-edge {
+                height: 400px !important;
+            }
+        }
+
+        @media (max-width: 992px) {
+            #main {
+                padding-left: 1.5rem;
+                padding-right: 1.5rem;
+            }
+            
+            #home div[style*="font-size: 80px"] {
+                font-size: 50px !important;
+            }
+            
+            .natural-edge {
+                height: 350px !important;
+            }
+            
+            #about .flex.justify-between.items-center {
+                flex-direction: column;
+                gap: 2rem;
+            }
+            
+            #about .text-\[30px\] {
+                font-size: 24px;
+                width: 100% !important;
+                text-align: left !important;
+            }
+            
+            #about .w-2\/3 {
+                width: 100% !important;
+            }
+            
+            #about .text-\[20px\] {
+                font-size: 18px;
+            }
+            
+            #about .my-32 {
+                margin-top: 4rem;
+                margin-bottom: 4rem;
+            }
+            
+            #about .text-\[100px\] {
+                font-size: 60px;
+            }
+            
+            #contact .grid {
+                grid-template-columns: 1fr !important;
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            #main {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+            
+            nav .flex.gap-10 {
+                gap: 1.5rem;
+            }
+            
+            #home div[style*="font-size: 80px"] {
+                font-size: 40px !important;
+            }
+            
+            .natural-edge {
+                height: 300px !important;
+            }
+            
+            #about .text-\[100px\] {
+                font-size: 40px;
+            }
+            
+            #about .text-\[30px\] {
+                font-size: 22px;
+            }
+            
+            #about .text-\[20px\] {
+                font-size: 16px;
+            }
+            
+            #skill .flex.justify-around {
+                justify-content: center;
+                gap: 2rem;
+            }
+            
+            #skill .h-16 {
+                height: 3rem;
+            }
+            
+            #project .flex.mt-10 {
+                justify-content: center;
+            }
+            
+            #project .w-\[350px\] {
+                width: 300px;
+            }
+            
+            #project .h-\[250px\] {
+                height: 220px;
+            }
+            
+            .text-\[30px\] {
+                font-size: 24px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            #main {
+                padding-left: 0.5rem;
+                padding-right: 0.5rem;
+            }
+            
+            nav .flex.gap-10 {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+            
+            #home div[style*="font-size: 80px"] {
+                font-size: 32px !important;
+            }
+            
+            .natural-edge {
+                height: 250px !important;
+            }
+            
+            #home .mb-5 {
+                font-size: 1rem;
+            }
+            
+            #about .text-\[100px\] {
+                font-size: 32px;
+            }
+            
+            #about .text-\[30px\] {
+                font-size: 20px;
+            }
+            
+            #about .text-\[20px\] {
+                font-size: 14px;
+            }
+            
+            #about .my-32 {
+                margin-top: 2rem;
+                margin-bottom: 2rem;
+            }
+            
+            #skill .h-16 {
+                height: 2.5rem;
+            }
+            
+            #project .w-\[350px\] {
+                width: 100%;
+                max-width: 280px;
+            }
+            
+            #project .h-\[250px\] {
+                height: 200px;
+            }
+            
+            .text-\[30px\] {
+                font-size: 22px;
+            }
+            
+            #contact .px-20 {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+            
+            #contact .mt-32 {
+                margin-top: 4rem;
+            }
+            
+            #splash-screen .text-\[70px\] {
+                font-size: 40px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            nav .flex.gap-10 {
+                gap: 0.7rem;
+                font-size: 0.8rem;
+            }
+            
+            #home div[style*="font-size: 80px"] {
+                font-size: 28px !important;
+            }
+            
+            .natural-edge {
+                height: 200px !important;
+            }
+            
+            #about .text-\[100px\] {
+                font-size: 28px;
+            }
+            
+            #about .text-\[30px\] {
+                font-size: 18px;
+            }
+            
+            #about .text-\[20px\] {
+                font-size: 13px;
+            }
+        }
+
+        /* Mobile Navigation */
+        @media (max-width: 768px) {
+        .mobile-nav-toggle {
+            display: flex !important;
+            position: fixed;
+            top: 1.5rem;
+            right: 1.5rem;
+            z-index: 1000;
+            background: #FA6601;
+            border: none;
+            border-radius: 4px;
+            padding: 0.5rem;
+            cursor: pointer;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* Sembunyikan desktop nav di mobile */
+        header nav .flex.gap-10 {
+            display: none !important;
+        }
+        
+        .mobile-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: #151515;
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            transform: translateX(-100%);
+            transition: transform 0.3s ease-in-out;
+        }
+        
+        .mobile-nav.active {
+            transform: translateX(0);
+        }
+        
+        .mobile-nav a {
+            font-size: 1.5rem;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .mobile-nav a.active {
+            color: #FA6601;
+        }
+        
+        .mobile-nav-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            z-index: 1001;
+        }
+    }
+
+    /* Hide mobile navigation on desktop */
+    @media (min-width: 769px) {
+        .mobile-nav-toggle,
+        .mobile-nav {
+            display: none !important;
+        }
+    }
+    </style>
+
+    <title>Muhamad Nur Farid</title>
+</head>
+
+<body class="bg-[#151515] text-white overflow-x-hidden">
+
+    <!-- Hidden SEO Keywords -->
+    <h1 hidden="">Muhamad Nur Farid</h1>
+    <h2 hidden="">Farid</h2>
+    <h6 hidden="">Saya adalah seorang Web Developer yang dedicated dan profesional dengan pengalaman lebih dari setahun, berspesialisasi dalam membuat website yang dinamis dan user-friendly. Keahlian teknis saya mencakup fondasi yang kuat dalam HTML, CSS, JavaScript, dan berbagai framework modern seperti React dan Laravel.</h6>
+        
+    <!-- Splash Screen -->
+    <div id="splash-screen" class="w-full h-screen bg-[#151515] fixed z-[100] flex justify-center items-center">
+        <div class="text-white text-[70px] font-bold fade-in">
+            Hello :)
+        </div>
+    </div>
+
+    <!-- Mobile Navigation Toggle -->
+    <button class="mobile-nav-toggle" aria-label="Toggle navigation">
+        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+    </button>
+
+    <!-- Mobile Navigation Menu -->
+    <div class="mobile-nav">
+        <button class="mobile-nav-close" aria-label="Close navigation">
+            ×
+        </button>
+        <a href="#home" class="mobile-nav-link">HOME</a>
+        <a href="#about" class="mobile-nav-link">ABOUT</a>
+        <a href="#skill" class="mobile-nav-link">SKILL</a>
+        <a href="#project" class="mobile-nav-link">PROJECT</a>
+        <a href="#contact" class="mobile-nav-link">CONTACT</a>
+    </div>
+
+    <!-- Main Content -->
+    <div id="main" class="w-full min-h-screen px-20">
+        
+        <!-- Sticky Navigation -->
+        <header class="sticky top-0 z-50 bg-[#151515]/80 backdrop-blur-md" data-aos="fade-down" data-aos-duration="2000" data-aos-delay="3000">
+            <nav class="w-full py-4 flex justify-between text-white">
+                <div class="text-xl font-bold">
+                    <a>FARID</a>
+                </div>
+                <div class="flex gap-10 font-semibold">
+                    <a href="#home">HOME</a>
+                    <a href="#about">ABOUT</a>
+                    <a href="#skill">SKILL</a>
+                    <a href="#project">PROJECT</a>
+                    <a href="#contact">CONTACT</a>
+                </div>
+            </nav>
+            <div class="border-b-2 border-[#4b4b4b]"></div>
+        </header>
+
+        <!-- Home Section -->
+        <section id="home" class="w-full min-h-screen text-white relative flex flex-col justify-center border-b-2 border-[#4b4b4b]">
+            <div class="mb-5" data-aos="fade-down" data-aos-duration="3000" data-aos-delay="3000">HELLO, I'M</div>
+            <div style="user-select: none; font-size: 80px; line-height: 1;" class="font-semibold ml-2" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="3000">MUHAMMAD</div>
+            <div style="user-select: none; font-size: 80px; line-height: 1;" class="font-semibold ml-2" data-aos="fade-right" data-aos-duration="2000" data-aos-delay="3000">NUR</div>
+            <div style="user-select: none; font-size: 80px; line-height: 1;" class="font-semibold ml-2" data-aos="fade-right" data-aos-duration="3000" data-aos-delay="3000">FARID</div>
+            <div class="flex gap-5 mt-5" data-aos="fade-up-right" data-aos-duration="3000" data-aos-delay="3000">
+                <a href="https://github.com/mnfarkidsss" target="_blank" class="flex gap-2 align-middle hover:text-[#FA6601] transition-colors">
+                    <div class="flex flex-col justify-center"><img src="asset/svg/github.svg" alt="GitHub" class="w-6 h-6"></div>Github
+                </a>
+                <a href="https://www.linkedin.com/in/" target="_blank" class="flex gap-2 align-middle hover:text-[#FA6601] transition-colors">
+                    <div class="flex flex-col justify-center"><img src="asset/svg/linkedln.svg" alt="LinkedIn" class="w-6 h-6"></div>LinkedIn
+                </a>
+            </div>
+            <div class="absolute right-0 w-fit -z-10" data-aos="fade-left" data-aos-duration="2000" data-aos-delay="3000">
+            <div class="glow-effect absolute inset-x-1/2 inset-y-1/2 -z-10"></div>
+                <img src="asset/profile.png" alt="Profile of Muhamad Nur Farid" class="h-[500px] natural-edge">
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="text-white my-5 min-h-screen flex flex-col justify-center">
+            <div class="flex justify-between" data-aos="fade-up" data-aos-duration="1000">
+                <h2 class="text-2xl font-bold">Professional Web Developer</h2>
+                <div>1+ YEARS EXPERIENCE</div>
+            </div>
+
+            <div class="my-32 w-full flex justify-center items-center" data-aos="fade-up" data-aos-duration="1000">
+                <div class="text-[100px] font-semibold text-center" style="user-select: none;">
+                    I'm a <span class="auto-type text-[#FA6601]"></span><span class="typed-cursor" aria-hidden="true">|</span>
+                </div>
+            </div>
+
+            <div class="flex justify-between items-center">
+                <div class="text-[30px] font-bold w-1/3 text-center" data-aos="fade-right" data-aos-duration="1000">
+                    ABOUT ME
+                </div>
+                <div class="w-2/3 text-[20px] space-y-4">
+                    <p data-aos="fade-up-left" data-aos-duration="1000">
+                        Saya adalah seorang Web Developer yang berdedikasi dan profesional dengan pengalaman lebih dari setahun, berspesialisasi dalam membuat website yang dinamis dan user-friendly. Keahlian teknis saya mencakup fondasi yang kuat dalam HTML, CSS, JavaScript, serta berbagai framework modern seperti React dan Laravel.
+                    </p>
+                    <p data-aos="fade-up-left" data-aos-duration="1000">
+                        Sepanjang karir saya, saya telah menunjukkan kemampuan beradaptasi dengan teknologi dan metodologi baru, yang memungkinkan saya berkontribusi secara efektif pada proyek dan melampaui ekspektasi. Passion saya untuk pembelajaran berkelanjutan dan pengembangan profesional sejalan dengan keinginan saya untuk membantu orang lain dan memberikan dampak positif di komunitas teknologi.
+                    </p>
+                    <p data-aos="fade-up-left" data-aos-duration="1000">
+                        Sebagai problem solver yang proaktif, saya selalu mencari tantangan baru yang mendorong batas kemampuan saya. Pendekatan saya terhadap pengembangan web berpusat pada menciptakan pengalaman pengguna yang intuitif dan efisien, memastikan setiap proyek yang saya kerjakan secara teknis sound dan estetis.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skill" class="text-white my-10 min-h-screen flex flex-col justify-center">
+            <div class="text-[30px] font-bold text-center" data-aos="flip-up" data-aos-duration="1000">SKILL</div>
+            <div class="flex justify-around gap-4 mt-10 flex-wrap">
+                <div data-aos="zoom-in-up" data-aos-duration="1000"><a href="https://laravel.com/" target="_blank"><img src="asset/svg/laravel.svg" alt="Laravel" class="h-16 hover:scale-125 ease-in-out duration-300"></a></div>
+                <div data-aos="zoom-in-up" data-aos-duration="1000"><a href="https://react.dev/" target="_blank"><img src="asset/svg/react.svg" alt="React" class="h-16 hover:scale-125 ease-in-out duration-300"></a></div>
+                <div data-aos="zoom-in-up" data-aos-duration="1000"><a href="https://javascript.com/" target="_blank"><img src="asset/svg/js.svg" alt="JavaScript" class="h-16 hover:scale-125 ease-in-out duration-300"></a></div>
+                <div data-aos="zoom-in-up" data-aos-duration="1000"><a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank"><img src="asset/svg/html.svg" alt="HTML5" class="h-16 hover:scale-125 ease-in-out duration-300"></a></div>
+                <div data-aos="zoom-in-up" data-aos-duration="1000"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank"><img src="asset/svg/css.svg" alt="CSS3" class="h-16 hover:scale-125 ease-in-out duration-300"></a></div>
+                <div data-aos="zoom-in-up" data-aos-duration="1000"><a href="https://www.mysql.com/" target="_blank"><img src="asset/svg/mysql.svg" alt="MySQL" class="h-16 hover:scale-125 ease-in-out duration-300"></a></div>
+                <div data-aos="zoom-in-up" data-aos-duration="1000"><a href="https://www.python.org/" target="_blank"><img src="asset/svg/python.svg" alt="Python" class="h-16 hover:scale-125 ease-in-out duration-300"></a></div>
+                <div data-aos="zoom-in-up" data-aos-duration="1000"><a href="https://tailwindcss.com/" target="_blank"><img src="asset/svg/tailwind.svg" alt="Tailwind CSS" class="h-16 hover:scale-125 ease-in-out duration-300"></a></div>
+                <div data-aos="zoom-in-up" data-aos-duration="1000"><a href="https://figma.com/" target="_blank"><img src="asset/svg/figma.svg" alt="Figma" class="h-16 hover:scale-125 ease-in-out duration-300"></a></div>
+            </div>
+        </section>
+
+        <!-- Project Section -->
+        <section id="project" class="text-white my-10 min-h-screen flex flex-col justify-center">
+            <div class="text-[30px] font-bold text-center" data-aos="flip-up" data-aos-duration="1000">PROJECT</div>
+            <div class="flex mt-10 justify-center items-center flex-wrap gap-10">
+                <div class="relative flex flex-col bg-[#1e1e1e] w-[350px] h-[250px] rounded-2xl border-2 border-[#282828] shadow-lg shadow-gray-500/50 hover:shadow-2xl hover:shadow-orange-500/50 ease-in-out duration-300 hover:scale-110 items-center p-3 gap-2">
+                    <img src="asset/project/page.png" alt="Project Preview" class="rounded-t-xl h-[85%] w-full object-cover">
+                    <div class="font-bold text-[25px] text-center">Landing Page Company</div>
+                </div>
+                <div class="relative flex flex-col bg-[#1e1e1e] w-[350px] h-[250px] rounded-2xl border-2 border-[#282828] shadow-lg shadow-gray-500/50 hover:shadow-2xl hover:shadow-orange-500/50 ease-in-out duration-300 hover:scale-110 items-center p-3 gap-2">
+                    <img src="asset/project/pet.png" alt="Project Preview" class="rounded-t-xl h-[85%] w-full object-cover">
+                    <div class="font-bold text-[25px] text-center">Sistem Penitipan Hewan</div>
+                </div>
+                <div class="relative flex flex-col bg-[#1e1e1e] w-[350px] h-[250px] rounded-2xl border-2 border-[#282828] shadow-lg shadow-gray-500/50 hover:shadow-2xl hover:shadow-orange-500/50 ease-in-out duration-300 hover:scale-110 items-center p-3 gap-2">
+                    <img src="asset/project/proumetheus.png" alt="Project Preview" class="rounded-t-xl h-[85%] w-full object-cover">
+                    <div class="font-bold text-[25px] text-center">E-Commerce </div>
+                </div>
+                <div class="relative flex flex-col bg-[#1e1e1e] w-[350px] h-[250px] rounded-2xl border-2 border-[#282828] shadow-lg shadow-gray-500/50 hover:shadow-2xl hover:shadow-orange-500/50 ease-in-out duration-300 hover:scale-110 items-center p-3 gap-2">
+                    <img src="asset/project/iot.jpg" alt="Project Preview" class="rounded-t-xl h-[85%] w-full object-cover">
+                    <div class="font-bold text-[25px] text-center">IoT & Microcontroller</div>
+                </div>
+                <div class="relative flex flex-col bg-[#1e1e1e] w-[350px] h-[250px] rounded-2xl border-2 border-[#282828] shadow-lg shadow-gray-500/50 hover:shadow-2xl hover:shadow-orange-500/50 ease-in-out duration-300 hover:scale-110 items-center p-3 gap-2">
+                    <img src="asset/project/automation.jpg" alt="Project Preview" class="rounded-t-xl h-[85%] w-full object-cover">
+                    <div class="font-bold text-[25px] text-center">Automation </div>
+                </div>
+                <div class="relative flex flex-col bg-[#1e1e1e] w-[350px] h-[250px] rounded-2xl border-2 border-[#282828] shadow-lg shadow-gray-500/50 hover:shadow-2xl hover:shadow-orange-500/50 ease-in-out duration-300 hover:scale-110 items-center p-3 gap-2">
+                    <img src="asset/project/ui.png" alt="Project Preview" class="rounded-t-xl h-[85%] w-full object-cover">
+                    <div class="font-bold text-[25px] text-center">Desain Ui UX</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <footer id="contact" class="text-white mt-32 mb-8 px-20">
+            <div class="text-[30px] font-bold text-center" data-aos="flip-up" data-aos-duration="1000">
+                LET'S CONNECT
+            </div>
+            <p class="text-center text-gray-400 mt-4" data-aos="fade-up" data-aos-duration="1000">
+                Ada proyek di pikiran? Atau sekadar ingin menyapa? Saya siap untuk mendengarnya.
+            </p>
+            
+            <div class="mt-12 max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+                <!-- Contact Form -->
+                <form id="contact-form" class="space-y-6" data-aos="fade-right" data-aos-duration="1000">
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-gray-300">Nama Lengkap</label>
+                        <input type="text" id="name" name="name" required
+                            class="mt-1 block w-full px-4 py-3 bg-[#1e1e1e] border border-gray-600 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#FA6601] focus:border-transparent transition duration-300"
+                            placeholder="John Doe">
+                    </div>
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-300">Alamat Email</label>
+                        <input type="email" id="email" name="email" required
+                            class="mt-1 block w-full px-4 py-3 bg-[#1e1e1e] border border-gray-600 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#FA6601] focus:border-transparent transition duration-300"
+                            placeholder="nama@contoh.com">
+                    </div>
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-gray-300">Pesan</label>
+                        <textarea id="message" name="message" rows="5" required
+                            class="mt-1 block w-full px-4 py-3 bg-[#1e1e1e] border border-gray-600 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#FA6601] focus:border-transparent transition duration-300"
+                            placeholder="Ceritakan tentang proyek Anda..."></textarea>
+                    </div>
+                    <button type="submit"
+                        class="w-full bg-[#FA6601] text-white font-bold py-3 px-6 rounded-lg hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-[#151515] focus:ring-[#FA6601] transition-all duration-300 transform hover:scale-105">
+                        Kirim Pesan
+                    </button>
+                </form>
+
+                <!-- Contact Info & Socials -->
+                <div class="space-y-8" data-aos="fade-left" data-aos-duration="1000">
+                    <div>
+                        <h3 class="text-xl font-semibold mb-4">Hubungi Langsung</h3>
+                        <p class="text-gray-400">Jika Anda lebih suka cara yang langsung, Anda bisa email saya.</p>
+                        <a href="mailto:mnurfariddd1331@gmail.com" class="inline-flex items-center mt-2 text-[#FA6601] hover:underline">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                            </svg>
+                            mnurfariddd1331@gmail.com
+                        </a>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-xl font-semibold mb-4">Temukan Saya</h3>
+                        <p class="text-gray-400 mb-4">Terhubung dengan saya di platform media sosial.</p>
+                        <div class="flex gap-4">
+                            <a href="https://wa.me/6288951838944" target="_blank" class="p-3 bg-[#1e1e1e] border border-gray-600 rounded-lg hover:border-[#FA6601] transition-colors">
+                                <img src="asset/svg/whatsapp.svg" alt="WhatsApp" width="24px" class="grayscale hover:grayscale-0 transition-all duration-300">
+                            </a>
+                            <a href="https://www.instagram.com/mnfaridd.d/" target="_blank" class="p-3 bg-[#1e1e1e] border border-gray-600 rounded-lg hover:border-[#FA6601] transition-colors">
+                                <img src="asset/svg/instagram.svg" alt="Instagram" width="24px" class="grayscale hover:grayscale-0 transition-all duration-300">
+                            </a>
+                            <a href="https://www.linkedin.com/in/" target="_blank" class="p-3 bg-[#1e1e1e] border border-gray-600 rounded-lg hover:border-[#FA6601] transition-colors">
+                                <img src="asset/svg/linkedln.svg" alt="LinkedIn" width="24px" class="grayscale hover:grayscale-0 transition-all duration-300">
+                            </a>
+                            <a href="https://github.com/mnfarkidsss" target="_blank" class="p-3 bg-[#1e1e1e] border border-gray-600 rounded-lg hover:border-[#FA6601] transition-colors">
+                                <img src="asset/svg/github.svg" alt="GitHub" width="24px" class="grayscale hover:grayscale-0 transition-all duration-300">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Scroll to Top Button -->
+    <button id="back-to-top" class="hidden fixed bottom-8 right-8 z-50 p-3 bg-[#FA6601] text-white rounded-full shadow-lg hover:bg-orange-600 transition-all duration-300 focus:outline-none" aria-label="Back to top">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path></svg>
+    </button>
+
+    <!-- External Scripts -->
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    
+    <!-- Main Script -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            
+            // --- 1. ELEMENTS ---
+            const splashScreen = document.getElementById("splash-screen");
+            const mainContent = document.getElementById("main");
+            const navLinks = document.querySelectorAll('nav a[href^="#"]');
+            const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+            const sections = document.querySelectorAll('section[id]');
+            const backToTopBtn = document.getElementById('back-to-top');
+            const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
+            const mobileNav = document.querySelector('.mobile-nav');
+            const mobileNavClose = document.querySelector('.mobile-nav-close');
+
+            // --- 2. INITIALIZATION ---
+            AOS.init({ offset: 200, once: true });
+            var typed = new Typed(".auto-type", {
+                strings: ["Programmer", "Web Developer", "Frontend Developer", "Backend Developer", "Freelancer"],
+                typeSpeed: 150, backSpeed: 100, loop: true
+            });
+
+            // --- 3. SPLASH SCREEN ---
+            setTimeout(() => {
+                splashScreen.style.transition = 'opacity 0.5s';
+                splashScreen.style.opacity = '0';
+                setTimeout(() => {
+                    splashScreen.style.display = 'none';
+                    mainContent.classList.remove('hidden');
+                    document.body.classList.remove('overflow-hidden');
+                    AOS.refresh();
+                }, 500);
+            }, 2000);
+
+            // --- 4. MOBILE NAVIGATION ---
+                mobileNavToggle.addEventListener('click', () => {
+                    mobileNav.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                });
+
+                mobileNavClose.addEventListener('click', () => {
+                    mobileNav.classList.remove('active');
+                    document.body.style.overflow = '';
+                });
+
+                mobileNavLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        mobileNav.classList.remove('active');
+                        document.body.style.overflow = '';
+                    });
+                });
+
+            // --- 5. SMOOTH SCROLLING ---
+            function smoothScrollTo(targetId) {
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    smoothScrollTo(targetId);
+                });
+            });
+
+            mobileNavLinks.forEach(link => {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    smoothScrollTo(targetId);
+                });
+            });
+
+            // --- 6. ACTIVE NAVIGATION LINK (Intersection Observer) ---
+            const observerOptions = { root: null, rootMargin: '0px', threshold: 0.5 };
+            const observerCallback = (entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const targetId = entry.target.getAttribute('id');
+                        // Update desktop nav
+                        navLinks.forEach(link => link.classList.remove('active'));
+                        const activeDesktopLink = document.querySelector(`nav a[href="#${targetId}"]`);
+                        if (activeDesktopLink) activeDesktopLink.classList.add('active');
+                        
+                        // Update mobile nav
+                        mobileNavLinks.forEach(link => link.classList.remove('active'));
+                        const activeMobileLink = document.querySelector(`.mobile-nav a[href="#${targetId}"]`);
+                        if (activeMobileLink) activeMobileLink.classList.add('active');
+                    }
+                });
+            };
+            const observer = new IntersectionObserver(observerCallback, observerOptions);
+            sections.forEach(section => observer.observe(section));
+
+            // --- 7. BACK TO TOP BUTTON ---
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    backToTopBtn.classList.remove('hidden');
+                } else {
+                    backToTopBtn.classList.add('hidden');
+                }
+            });
+            backToTopBtn.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            // --- 8. MISC ---
+            if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+            window.scrollTo(0, 0);
+        });
+    </script>
+</body>
+</html>
